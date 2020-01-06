@@ -15,12 +15,10 @@ numero_viagem=0
 def viagem_fortwo():
     global numero_viagem
     numero_viagem += 1
-    print(f'\n======= Viagem {numero_viagem} =======')
+    print(f'\n========== Viagem {numero_viagem} ==========')
     sleep(2)
     print(f'Estão no terminal: {terminal}')
     sleep(2)
-
-print(carro)
 
 for viagem in range(1,8):
     if viagem == 1:
@@ -145,6 +143,3 @@ for viagem in range(1,8):
         print(f'O {el1} e o {el1} entram no avião')
         sleep(2)
         print(f'Estão no avião: {aviao}')
-print(terminal) 
-print(carro)
-print(aviao)
