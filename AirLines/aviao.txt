@@ -1,0 +1,8 @@
+comissaria 1
+comissaria 2
+Oficial 1
+Oficial 2
+Policial
+Bandido
+Piloto
+chefe de servico de voo
