@@ -1,5 +1,8 @@
+import sys
 import MySQLdb
-from model import squads_model
+sys.path.append(r'C:\Users\900156\Desktop\Nicole\Squads')
+from model.squads_model import SquadsModel
+
 class SquadsDao():
     conexao= MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
     cursor = conexao.cursor

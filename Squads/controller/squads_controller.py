@@ -1,9 +1,10 @@
+import sys
+sys.path.append(r'C:\Users\900156\Desktop\Nicole\Squads')
 from dao.squads_dao import SquadsDao
 from model.squads_model import SquadsModel
 
 class SquadsController():
-    dao = squads_dao
-
+    dao = SquadsDao()
     def listar_todos(self):
         lista = []
         tupla = self.dao.listar_todos()
@@ -27,7 +28,15 @@ class SquadsController():
         squads.numeropessoas = s[3]
         squads.linguagembackend = s[4]
         squads.frameworkfrontend = s[5]
-        return pessoa
+        return squads
 
     def salvar(self,squads = SquadsModel):
-        
+        squads = salvar.squads
+        return self.dao.salvar(squads)
+
+    def alterar(self,squads = SquadsModel):
+        self.alterar(squads)
+        self.dao.alterar(squads)
+
+    def deletar(self,id):
+        self.dao.deletar(id)

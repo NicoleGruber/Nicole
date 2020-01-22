@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{titulo_app}} - Cadastrar</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+</head>
+<body>
+    <div class="conteudo">
+        <form action="/salvar" method="get">
+            <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
+            <div class="descricoes"> 
+                <label for="nome">Nome:</label>
+            </div>
+            <input type="text" name="nome" id="nome" placeholder="Digite o nome da squad" value="{{squad.nome}}"> <br/>
+
+            <div class="descricoes"> 
+                <label for="descricao">Descricao:</label>
+            </div>
+            <input type="text" name="descricao" id="descricao" placeholder="Digite a descricao da squad" value="{{squad.descricao}}"> <br/>
+
+            <div class="descricoes"> 
+                <label for="numeropessoas">NumeroPessoas:</label>
+            </div>
+            <input type="text" name="numeropessoas" id="numeropessoas" placeholder="Digite o numero de pessoas da squad" value="{{squad.numeropessoas}}"> <br/>
+
+            <div class="descricoes"> 
+                <label for="linguagembackend">LinguagemBackEnd:</label>
+            </div>
+            <input type="text" name="linguagembackend" id="linguagembackend" placeholder="Digite a linguagem de backend da squad" value="{{squad.linguagembackend}}"> <br/>
+
+            <div class="descricoes"> 
+                <label for="frameworkfrontend">FrameWorkFrontEnd:</label>
+            </div>
+            <input type="text" name="frameworkfrontend" id="frameworkfrontend" placeholder="Digite o frameworkfrontend da squad" value="{{squad.frameworkfrontend}}"> <br/>
+
+            <hr/>
+            <input type="submit" value="Salvar" class="salvar">
+            <a href="/cadastrar" class="limpar">Limpar</a>
+        </form>
+    </div>
+</body>
+</html>
