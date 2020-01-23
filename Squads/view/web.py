@@ -15,37 +15,37 @@ def inicio():
 @app.route('/listar')
 def listar():
     squads = squads_controller.listar_todos()
-    return render_template('listar.html', titulo_app = nome, lista = pessoas)
+    return render_template('listar.html', titulo_app = nome, lista_sq = squads)
 
 @app.route('/cadastrar')
 def cadastrar():
-    squads = SquadsModel()
+    squad = SquadsModel()
     if 'id' in request.args:
-        id = request.args['id']
-        squad = squads_controller.buscar_por_id(id)
-    return render_template('cadastrar.html', titulo_app = nome, squad = Squad )
+        ID = request.args['id']
+        squad = squads_controller.buscar_por_id(ID)
+    return render_template('cadastrar.html', titulo_app = nome, squad = squad )
 
 @app.route('/excluir')
 def excluir():
-    id = int(request.args['id'])
-    id_end = request.args['id_end']
-    squads_controller.deletar(id)
+    ID = int(request.args['id'])
+    squads_controller.deletar(ID)
     return redirect('/listar')
 
 @app.route('/salvar')
 def salvar():
-    squads = Squads()
-    squads.id = request.args['id']
-    squads.nome = request.args['nome']
-    squads.descricao = request.args['descricao']
-    squads.numeropessoas = request.args['numeropessoas'],
-    squads.linguagembackend = request.args['linguagembackend']
-    squads.frameworkfrontend = request.args['frameworkfrontend']
+    squads = SquadsModel()
+    
+    squads.ID = int(request.args['id'])
+    squads.Nome = request.args['nome']
+    squads.Descricao = request.args['descricao']
+    squads.NumeroPessoas = int(request.args['numeropessoas'])
+    squads.LinguagemBackEnd = request.args['linguagembackend']
+    squads.FrameWorkFrontEnd = request.args['frameworkfrontend']
 
-    if pessoa.id == 0:
-        pessoa_controller.salvar(pessoa)
+    if squads.ID == '0':
+        squads_controller.salvar(squads)
     else:
-        pessoa_controller.alterar(pessoa)
+        squads_controller.alterar(squads)
     return redirect('/listar')
-
-app.run(debug=True)
+app.run()
+#app.run(debug=True)

@@ -23,17 +23,17 @@
                 </tr>
             </thead>
             <tbody>
-                {% for <s></s> in lista %}
+                {% for s in lista_sq %}
                 <tr>
-                    <td>{{ s.id }}</td>
-                    <td>{{ s.nome }}</td>
-                    <td>{{ s.descricao }}</td>
-                    <td>{{ s.numeropessoas }}</td>
-                    <td>{{ s.LinguagemBackEnd}}</td>
-                    <td>{{ s.FrameWorkFrontEnd}}</td>
+                    <td>{{s.ID}}</td>
+                    <td>{{s.Nome }}</td>
+                    <td>{{s.Descricao }}</td>
+                    <td>{{s.NumeroPessoas }}</td>
+                    <td>{{s.LinguagemBackEnd}}</td>
+                    <td>{{s.FrameWorkFrontEnd}}</td>
                     <td>
-                        <a href="/cadastrar?id={{ s.id }}" class="editar">Editar</a>
-                        <a href="/excluir?id={{ s.id }}" class="excluir">Excluir</a>
+                        <a href="/cadastrar?id={{ s.ID }}" class="editar">Editar</a>
+                        <a href="/excluir?id={{ s.ID }}" class="excluir">Excluir</a>
                     </td>
                 </tr>
                 {% endfor %}

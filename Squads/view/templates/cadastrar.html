@@ -10,31 +10,31 @@
 <body>
     <div class="conteudo">
         <form action="/salvar" method="get">
-            <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
+            <input type="hidden" name="id" id="id" value="{{squad.ID}}"> <br/>
             <div class="descricoes"> 
                 <label for="nome">Nome:</label>
             </div>
-            <input type="text" name="nome" id="nome" placeholder="Digite o nome da squad" value="{{squad.nome}}"> <br/>
+            <input type="text" name="nome" id="nome" placeholder="Digite o nome da squad" value="{{squad.Nome}}"> <br/>
 
             <div class="descricoes"> 
                 <label for="descricao">Descricao:</label>
             </div>
-            <input type="text" name="descricao" id="descricao" placeholder="Digite a descricao da squad" value="{{squad.descricao}}"> <br/>
+            <input type="text" name="descricao" id="descricao" placeholder="Digite a descricao da squad" value="{{squad.Descricao}}"> <br/>
 
             <div class="descricoes"> 
                 <label for="numeropessoas">NumeroPessoas:</label>
             </div>
-            <input type="text" name="numeropessoas" id="numeropessoas" placeholder="Digite o numero de pessoas da squad" value="{{squad.numeropessoas}}"> <br/>
+            <input type="number" name="numeropessoas" id="numeropessoas" placeholder="Digite o numero de pessoas da squad" value="{{squad.NumeroPessoas}}"> <br/>
 
             <div class="descricoes"> 
                 <label for="linguagembackend">LinguagemBackEnd:</label>
             </div>
-            <input type="text" name="linguagembackend" id="linguagembackend" placeholder="Digite a linguagem de backend da squad" value="{{squad.linguagembackend}}"> <br/>
+            <input type="text" name="linguagembackend" id="linguagembackend" placeholder="Digite a linguagem de backend da squad" value="{{squad.LinguagemBackEnd}}"> <br/>
 
             <div class="descricoes"> 
                 <label for="frameworkfrontend">FrameWorkFrontEnd:</label>
             </div>
-            <input type="text" name="frameworkfrontend" id="frameworkfrontend" placeholder="Digite o frameworkfrontend da squad" value="{{squad.frameworkfrontend}}"> <br/>
+            <input type="text" name="frameworkfrontend" id="frameworkfrontend" placeholder="Digite o frameworkfrontend da squad" value="{{squad.FrameWorkFrontEnd}}"> <br/>
 
             <hr/>
             <input type="submit" value="Salvar" class="salvar">
