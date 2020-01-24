@@ -43,12 +43,12 @@ class SquadsDao():
 
     def alterar(self , squads : SquadsModel):
         comando = f"""UPDATE Nicole_Squad SET
-        Nome = '{squads.Nome}'
-        Descricao = '{squads.Descricao}'
-        NumeroPessoas = {squads.NumeroPessoas}
-        LinguagemBackEnd = '{squads.LinguagemBackEnd}'
-        FrameWorkFrontEnd = '{squads.FrameWorkFrontEnd}'
-        WHERE ID = {squads.ID}"""
+            Nome = '{squads.Nome}',
+            Descricao = '{squads.Descricao}',
+            NumeroPessoas = {squads.NumeroPessoas},
+            LinguagemBackEnd = '{squads.LinguagemBackEnd}',
+            FrameWorkFrontEnd = '{squads.FrameWorkFrontEnd}'
+            WHERE ID = {squads.ID}"""
         self.cursor.execute(comando)
         self.conexao.commit()
     

@@ -47,5 +47,4 @@ def salvar():
     else:
         squads_controller.alterar(squads)
     return redirect('/listar')
-app.run()
-#app.run(debug=True)
+app.run(debug=True)
