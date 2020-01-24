@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{titulo_app}} - Cadastrar</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+</head>
+<body>
+    <div class="conteudo">
+        <form action="/salvar" method="get">
+            <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
+            <div class="descricoes"> 
+                <label for="Nome">Nome:</label>
+            </div>
+            <input type="text" name="Nome" id="Nome" placeholder="Digite o nome" value="{{squad.Nome}}"> <br/>
+            <div class="descricoes"> 
+                <label for="Descricao">Descricao:</label>
+            </div>
+            <input type="text" name="Descricao" id="Descricao" value="{{squad.Descricao}}"> <br/>
+            <div class="descricoes"> 
+                <label for="NumeroPessoas">NumeroPessoas:</label>
+            </div>
+            <input type="text" name="NumeroPessoas" id="NumeroPessoas" value="{{squad.NumeroPessoas if squad.NumeroPessoas != 0 else ''}}"> <br/>
+            
+            <div class="descricoes"> 
+            
+                <br/>
+
+            <hr/>
+            <input type="submit" value="Salvar" class="salvar">
+            <a href="/cadastrar" class="limpar">Limpar</a>
+        </form>
+    </div>
+</body>
+
+<div class="conteudo">
+    
+        <form action="/salvar" method="get">
+            <input type="hidden" name="id" id="id" value="{{squad.FrameWork.id}}"> <br/>
+            <div class="descricoes"> 
+                <label for="Nome"><div class="conteudo">
+        <form action="/salvar" method="get">
+            <input type="text" name="Nome" id="Nome" value="{{squad.FrameWork.Nome}}"> <br/>
+            <div class="descricoes"> 
+                <label for="Nome">FrameWorkFrontEnd:</label>    
+    
+    
+    
+    <form action="/salvar" method="get">
+            <input type="hidden" name="id" id="id" value="{{squad.BackEnd.id}}"> <br/>
+            <div class="descricoes"> 
+                <label for="Nome"><div class="conteudo">
+        <form action="/salvar" method="get">
+            <input type="text" name="Nome" id="Nome" value="{{squad.BackEnd.Nome}}"> <br/>
+            <div class="descricoes"> 
+                <label for="Nome">LinguagemBackEnd:</label>
+
+                <form action="/salvar" method="get">
+                    <input type="hidden" name="id" id="id" value="{{squad.SGBD.id}}"> <br/>
+                    <div class="descricoes"> 
+                        <label for="Nome"><div class="conteudo">
+                <form action="/salvar" method="get">
+                    <input type="text" name="Nome" id="Nome" value="{{squad.SGBD.Nome}}"> <br/>
+                    <div class="descricoes"> 
+                        <label for="Nome">SGBD:</label>
+
+                
+            </div>
+            </html>
