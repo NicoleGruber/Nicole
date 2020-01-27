@@ -57,24 +57,36 @@ def excluir():
 @app.route('/salvar')
 def salvar():
     squad = Squad()
-    framework = FrameWork()
-    backend = BackEnd()
-    sgbd = SGBD()
-    dic = request.args.to_dict()
-    #print('*\n'*10,type(dic))
-    squad.criar(**dic)
-    #print('**\n'*10,squad,'**\n'*10)
-    
-    
+    squad.id = request.args['id']
+    squad.Nome = request.args['Nome']
+    squad.Descricao = request.args['Descricao']
+    squad.NumeroPessoas = request.args['NumeroPessoas']
 
-   
-    if squad.id == '0':
-        squad_controller.salvar(squad)
-    else:
-        squad_controller.alterar(squad)
+    framework = FrameWork()
+    framework.id = request.args['id']
+    framework.Nome = request.args['Nome']
+
+    backend = BackEnd()
+    backend.id = request.args['id']
+    backend.Nome = request.args['Nome']
+
+    sgbd = SGBD()
+    sgbd.id = request.args['id']
+    sgbd.Nome = request.args['Nome']    
+
+    squad.FrameWork = framework
+    squad.BackEnd = backend 
+    squad.SGBD = sgbd
+
+
+    
+    #if squad.id == 0:
+    squad_controller.salvar(squad)
+    # else:
+    #     squad_controller.alterar(squad)
     return redirect('/listar')
 
-@app.route('/salvar/framework')
+@app.route('/salvar')
 def framework_nome():
     framework = FrameWork()
     if framework.id == '0':
@@ -83,7 +95,7 @@ def framework_nome():
         framework_controller.alterar(framework)
     return redirect('/listar')
 
-@app.route('/salvar/backend')
+@app.route('/salvar')
 def backend_nome():
     backend = BackEnd()
     if backend.id == '0':
@@ -92,7 +104,7 @@ def backend_nome():
         backend_controller.alterar(backend)
     return redirect('/listar')
 
-@app.route('/salvar/sgbd')
+@app.route('/salvar')
 def sgbd_nome():
     sgbd = SGBD()
     if sgbd.id == '0':
@@ -100,12 +112,5 @@ def sgbd_nome():
     else:
         sgbd_controller.alterar(sgbd)
     return redirect('/listar')
-
-
-
-
-
-    
-
 
 app.run(debug=True)

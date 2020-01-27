@@ -3,14 +3,17 @@ from Model.BackEnd import BackEnd
 from Model.SGBD import SGBD
 class Squad:
     def __init__(self):
-        self.id = 0
+        self.ID = 0
         self.Nome = ''
         self.Descricao= ''
         self.NumeroPessoas = 0
+        self.FrameWorkFrontEnd_ID = 0
         self.FrameWork = FrameWork()
         self.BackEnd = BackEnd()
         self.SGBD = SGBD()
-    def criar(self,Nome,Descricao,NumeroPessoas,BackEnd,FrameWork,sgbd,id=0):
+
+
+    def criar(self,Nome,Descricao,NumeroPessoas,FrameWork,BackEnd, SGBD,id=0):
         self.id = id
         self.Nome = Nome
         self.Descricao = Descricao

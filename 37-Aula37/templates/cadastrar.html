@@ -11,61 +11,50 @@
     <div class="conteudo">
         <form action="/salvar" method="get">
             <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
-            <div class="descricoes"> 
+
+            <div class="descricoes">
                 <label for="Nome">Nome:</label>
             </div>
             <input type="text" name="Nome" id="Nome" placeholder="Digite o nome" value="{{squad.Nome}}"> <br/>
+
             <div class="descricoes"> 
                 <label for="Descricao">Descricao:</label>
             </div>
             <input type="text" name="Descricao" id="Descricao" value="{{squad.Descricao}}"> <br/>
+
             <div class="descricoes"> 
                 <label for="NumeroPessoas">NumeroPessoas:</label>
             </div>
             <input type="text" name="NumeroPessoas" id="NumeroPessoas" value="{{squad.NumeroPessoas if squad.NumeroPessoas != 0 else ''}}"> <br/>
+ 
+            
+            <input type="hidden" name="id" id="id" value="{{squad.FrameWork.id}}"> <br/>
             
             <div class="descricoes"> 
+                <label for="FrameWork">FrameWorkFrontEnd:</label>
+            </div> 
+          <input type="text" name="FrameWork" id="FrameWork" value="{{squad.FrameWork.Nome}}"> <br/>
             
-                <br/>
+            <input type="hidden" name="id" id="id" value="{{squad.BackEnd.id}}"> <br/>
+            
+            <div class="descricoes"> 
+                <label for="LinguagemBackEnd">LinguagemBackEnd:</label>
+            </div>
+            <input type="text" name="LinguagemBackEnd" id="LinguagemBackEnd" value="{{squad.BackEnd.Nome}}"> <br/>
 
+            <input type="hidden" name="id" id="id" value="{{squad.SGBD.id}}"> <br/>
+
+            <div class="descricoes"> 
+                <label for="SGBD">SGBD:</label>
+            </div>    
+            <input type="text" name="SGBD" id="SGBD" value="{{squad.SGBD.Nome}}"> <br/>
+
+    
+                
             <hr/>
             <input type="submit" value="Salvar" class="salvar">
             <a href="/cadastrar" class="limpar">Limpar</a>
         </form>
     </div>
 </body>
-
-<div class="conteudo">
-    
-        <form action="/salvar" method="get">
-            <input type="hidden" name="id" id="id" value="{{squad.FrameWork.id}}"> <br/>
-            <div class="descricoes"> 
-                <label for="Nome"><div class="conteudo">
-        <form action="/salvar" method="get">
-            <input type="text" name="Nome" id="Nome" value="{{squad.FrameWork.Nome}}"> <br/>
-            <div class="descricoes"> 
-                <label for="Nome">FrameWorkFrontEnd:</label>    
-    
-    
-    
-    <form action="/salvar" method="get">
-            <input type="hidden" name="id" id="id" value="{{squad.BackEnd.id}}"> <br/>
-            <div class="descricoes"> 
-                <label for="Nome"><div class="conteudo">
-        <form action="/salvar" method="get">
-            <input type="text" name="Nome" id="Nome" value="{{squad.BackEnd.Nome}}"> <br/>
-            <div class="descricoes"> 
-                <label for="Nome">LinguagemBackEnd:</label>
-
-                <form action="/salvar" method="get">
-                    <input type="hidden" name="id" id="id" value="{{squad.SGBD.id}}"> <br/>
-                    <div class="descricoes"> 
-                        <label for="Nome"><div class="conteudo">
-                <form action="/salvar" method="get">
-                    <input type="text" name="Nome" id="Nome" value="{{squad.SGBD.Nome}}"> <br/>
-                    <div class="descricoes"> 
-                        <label for="Nome">SGBD:</label>
-
-                
-            </div>
-            </html>
+</html>

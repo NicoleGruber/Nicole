@@ -6,19 +6,40 @@ class SquadDao:
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando = f"SELECT * FROM Nicole_Squad"
+        comando = f"""SELECT
+        FROM Nicole_Squad as s
+        JOIN FN_FrameWorkFrontEnd as fm
+        on s.FrameWorkFrontEnd_ID = fm.ID
+        join FN_LinguagemBackEnd as l
+        on s.LinguagemBackEnd_ID = l.ID
+        join FN_SGBD as db
+        on s.SGBD_ID = db.ID;"""
         self.cursor.execute(comando)
         resultado = self.cursor.fetchall()
         return resultado
     
     def buscar_por_id(self, id):
-        comando = f"SELECT * FROM Nicole_Squad  WHERE ID = {id}"
+        comando = f"""SELECT s.ID, s.Nome, s.Descricao, s.NumeroPessoas
+        , fm.ID
+        , fm.FrameWorkFrontEnd
+        , l.ID
+        , l.LinguagemBackEnd
+        , db.ID
+        , db.SGBD
+        FROM Nicole_Squad as s
+        JOIN FN_FrameWorkFrontEnd as fm
+        on s.FrameWorkFrontEnd_ID = fm.ID
+        join FN_LinguagemBackEnd as l
+        on s.LinguagemBackEnd_ID = l.ID
+        join FN_SGBD as db
+        on s.SGBD_ID = db.ID WHERE s.ID = {id}; """
+        
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
 
     def salvar(self, squad:Squad):
-        comando = f""" INSERT INTO Nicole_Squad
+        comando = f"""INSERT INTO Nicole_Squad
         (
             Nome,
             Descricao,
@@ -32,9 +53,9 @@ class SquadDao:
             '{squad.Nome}',
             '{squad.Descricao}',
             {squad.NumeroPessoas},
-            {squad.FrameWorkFrontEnd_ID.ID},
-            {squad.LinguagemBackEnd_ID.ID},
-            {squad.SGBD_ID.ID}
+            {squad.FrameWorkFrontEnd_ID},
+            {squad.BackEnd.id},
+            {squad.SGBD.id}
 
         )"""
         self.cursor.execute(comando)
@@ -43,14 +64,14 @@ class SquadDao:
         return id_inserido
 
     def alterar(self, squad:Squad):
-        comando = f""" UPDATE Nicole_Squad
+        comando = f"""UPDATE Nicole_Squad 
         SET
             Nome = '{squad.Nome}',
             Descricao ='{squad.Descricao}',
             NumeroPessoas = {squad.NumeroPessoas}
-            FrameWorkFrontEnd_ID = {squad.FrameWorkFrontEnd_ID.ID},
-            LinguagemBackEnd_ID = {squad.LinguagemBackEnd_ID.ID},
-            SGBD_ID = {squad.SGBD_ID.ID}
+            FrameWorkFrontEnd_ID = {squad.FrameWork.id},
+            LinguagemBackEnd_ID = {squad.BackEnd.id},
+            SGBD_ID = {squad.SGBD.id}
 
         WHERE ID = {squad.id}
         """
