@@ -9,45 +9,41 @@
 </head>
 <body>
     <div class="conteudo">
-        <form action="/salvar" method="get">
+        <form action="/squad.salvar" method="get">
             <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
 
             <div class="descricoes">
                 <label for="Nome">Nome:</label>
             </div>
-            <input type="text" name="Nome" id="Nome" placeholder="Digite o nome" value="{{squad.Nome}}"> <br/>
+            <input type="text" name="Nome" id="Nome" placeholder="Digite o nome" value="{{squad.nome}}"> <br/>
 
             <div class="descricoes"> 
                 <label for="Descricao">Descricao:</label>
             </div>
-            <input type="text" name="Descricao" id="Descricao" value="{{squad.Descricao}}"> <br/>
+            <input type="text" name="Descricao" id="Descricao" value="{{squad.descricao}}"> <br/>
 
             <div class="descricoes"> 
                 <label for="NumeroPessoas">NumeroPessoas:</label>
             </div>
-            <input type="text" name="NumeroPessoas" id="NumeroPessoas" value="{{squad.NumeroPessoas if squad.NumeroPessoas != 0 else ''}}"> <br/>
- 
-            
-            <input type="hidden" name="id" id="id" value="{{squad.FrameWork.id}}"> <br/>
+            <input type="text" name="NumeroPessoas" id="NumeroPessoas" value="{{squad.numeropessoas}}"> <br/>
+
             
             <div class="descricoes"> 
                 <label for="FrameWork">FrameWorkFrontEnd:</label>
             </div> 
-          <input type="text" name="FrameWork" id="FrameWork" value="{{squad.FrameWork.Nome}}"> <br/>
+          <input type="text" name="FrameWork" id="FrameWork" value="{{squad.FrameWork.id}}"> <br/>
             
-            <input type="hidden" name="id" id="id" value="{{squad.BackEnd.id}}"> <br/>
             
             <div class="descricoes"> 
                 <label for="LinguagemBackEnd">LinguagemBackEnd:</label>
             </div>
-            <input type="text" name="LinguagemBackEnd" id="LinguagemBackEnd" value="{{squad.BackEnd.Nome}}"> <br/>
+            <input type="text" name="LinguagemBackEnd" id="LinguagemBackEnd" value="{{squad.BackEnd.id}}"> <br/>
 
-            <input type="hidden" name="id" id="id" value="{{squad.SGBD.id}}"> <br/>
 
             <div class="descricoes"> 
-                <label for="SGBD">SGBD:</label>
+                <label for="Sgdb">Sgdb:</label>
             </div>    
-            <input type="text" name="SGBD" id="SGBD" value="{{squad.SGBD.Nome}}"> <br/>
+            <input type="text" name="Sgdb" id="Sgdb" value="{{squad.sgdb.id}}"> <br/>
 
     
                 

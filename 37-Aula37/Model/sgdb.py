@@ -1,7 +1,7 @@
-class BackEnd:
+class Sgdb:
     def __init__(self):
         self.id = 0
-        self.nome = ''    
-
+        self.nome = ''
+       
     def __str__(self):
         return f'{self.id};{self.nome}'

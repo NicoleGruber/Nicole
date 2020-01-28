@@ -1,19 +1,19 @@
 from flask import Flask, render_template, request, redirect
 import sys
-sys.path.append('/Felipe/15-01-19/AulasPython/37-Aula37')
+sys.path.append(r'C:\Users\900156\Desktop\Nicole\37-Aula37')
 from Controller.squad_controller import SquadController
-from Controller.BackEnd_controller import BackEndController
-from Controller.Framework_controller import FrameWorkController
-from Controller.SGBD_controller import SGBDController
+from Controller.backend_controller import BackEndController
+from Controller.framework_controller import FrameWorkController
+from Controller.sgdb_controller import SgdbController
 from Model.squad import Squad
-from Model.Framework import FrameWork
-from Model.BackEnd import BackEnd
-from Model.SGBD import SGBD
+from Model.framework import FrameWork
+from Model.backend import BackEnd
+from Model.sgdb import Sgdb
 app = Flask(__name__)
 squad_controller = SquadController()
 framework_controller = FrameWorkController()
 backend_controller = BackEndController()
-sgbd_controller = SGBDController()
+sgdb_controller = SgdbController()
 
 nome = 'Cadastros'
 
@@ -31,17 +31,17 @@ def cadastrar():
     squad = Squad()
     framework = FrameWork()
     backend = BackEnd()
-    sgbd = SGBD()
+    sgdb = Sgdb()
     
     
     squad.FrameWork = FrameWork()
     squad.BackEnd = BackEnd()
-    squad.SGBD = SGBD()
+    squad.sgdb = Sgdb()
 
     if 'id' in request.args:
         id = request.args['id']
         squad = squad_controller.buscar_por_id(id)
-    return render_template('cadastrar.html', titulo_app = nome, squad = squad, framework = framework )
+    return render_template('cadastrar.html', titulo_app = nome, squad = squad, framework = framework, backend = backend, sgdb = sgdb )
 
 
 @app.route('/excluir')
@@ -49,44 +49,44 @@ def excluir():
     id = int(request.args['id'])
     framework_controller.deletar(id)
     backend_controller.deletar(id)
-    sgbd_controller.deletar(id)
+    sgdb_controller.deletar(id)
     squad_controller.deletar(id)
     
     return redirect('/listar')
 
-@app.route('/salvar')
+@app.route('/squad.salvar')
 def salvar():
     squad = Squad()
-    squad.id = request.args['id']
-    squad.Nome = request.args['Nome']
-    squad.Descricao = request.args['Descricao']
-    squad.NumeroPessoas = request.args['NumeroPessoas']
+    squad.id = int(request.args['id'])
+    squad.nome = request.args['Nome']
+    squad.descricao = request.args['Descricao']
+    squad.numeropessoas = request.args['NumeroPessoas']
 
     framework = FrameWork()
     framework.id = request.args['id']
-    framework.Nome = request.args['Nome']
+    framework.nome = request.args['Nome']
 
     backend = BackEnd()
     backend.id = request.args['id']
-    backend.Nome = request.args['Nome']
+    backend.nome = request.args['Nome']
 
-    sgbd = SGBD()
+    sgbd = Sgdb()
     sgbd.id = request.args['id']
-    sgbd.Nome = request.args['Nome']    
+    sgbd.nome = request.args['Nome']    
 
-    squad.FrameWork = framework
-    squad.BackEnd = backend 
-    squad.SGBD = sgbd
+    squad.framework = FrameWork
+    squad.backend = BackEnd 
+    squad.sgdb = Sgdb
 
 
     
-    #if squad.id == 0:
-    squad_controller.salvar(squad)
-    # else:
-    #     squad_controller.alterar(squad)
+    if squad.id == 0:
+        squad_controller.salvar(squad)
+    else:
+        squad_controller.alterar(squad)
     return redirect('/listar')
 
-@app.route('/salvar')
+@app.route('/framework.salvar')
 def framework_nome():
     framework = FrameWork()
     if framework.id == '0':
@@ -95,7 +95,7 @@ def framework_nome():
         framework_controller.alterar(framework)
     return redirect('/listar')
 
-@app.route('/salvar')
+@app.route('/backend.salvar')
 def backend_nome():
     backend = BackEnd()
     if backend.id == '0':
@@ -104,13 +104,14 @@ def backend_nome():
         backend_controller.alterar(backend)
     return redirect('/listar')
 
-@app.route('/salvar')
+@app.route('/sgdb.salvar')
 def sgbd_nome():
-    sgbd = SGBD()
-    if sgbd.id == '0':
-        sgbd_controller.salvar(sgbd)
+    sgdb = SGBD()
+    if sgdb.id == '0':
+        sgdb_controller.salvar(sgdb)
     else:
-        sgbd_controller.alterar(sgbd)
+        sgdb_controller.alterar(sgdb)
     return redirect('/listar')
 
 app.run(debug=True)
+

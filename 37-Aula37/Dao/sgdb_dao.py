@@ -1,7 +1,7 @@
 import MySQLdb
-from Model.SGBD import SGBD
+from Model.sgdb import Sgdb
 
-class SGBDDao:
+class SgdbDao:
     conexao = MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
     cursor = conexao.cursor()
 
@@ -18,7 +18,7 @@ class SGBDDao:
         resultado = self.cursor.fetchone()
         return resultado
 
-    def salvar(self, sgbd:SGBD):
+    def salvar(self, sgdb:Sgdb):
         comando = f""" INSERT INTO FN_SGBD
         (
             Nome
@@ -26,7 +26,7 @@ class SGBDDao:
         )
         VALUES
         (
-            '{sgbd.Nome}'
+            '{sgdb.nome}'
             
 
         )"""
@@ -35,12 +35,12 @@ class SGBDDao:
         id_inserido = self.cursor.lastrowid
         return id_inserido
 
-    def alterar(self, sgbd:SGBD):
+    def alterar(self, sgdb:Sgdb):
         comando = f""" UPDATE FN_SGBD
         SET
-            Nome = '{sgbd.Nome}',
+            Nome = '{sgdb.nome}',
            
-        WHERE ID = {sgbd.id}
+        WHERE ID = {sgdb.id}
         """
         self.cursor.execute(comando)
         self.conexao.commit()

@@ -1,30 +1,18 @@
-from Model.Framework import FrameWork
-from Model.BackEnd import BackEnd 
-from Model.SGBD import SGBD
+from Model.backend import BackEnd
+from Model.framework import FrameWork
+from Model.sgdb import Sgdb
 class Squad:
     def __init__(self):
-        self.ID = 0
-        self.Nome = ''
-        self.Descricao= ''
-        self.NumeroPessoas = 0
-        self.FrameWorkFrontEnd_ID = 0
-        self.FrameWork = FrameWork()
-        self.BackEnd = BackEnd()
-        self.SGBD = SGBD()
-
-
-    def criar(self,Nome,Descricao,NumeroPessoas,FrameWork,BackEnd, SGBD,id=0):
-        self.id = id
-        self.Nome = Nome
-        self.Descricao = Descricao
-        self.NumeroPessoas = NumeroPessoas
-        self.FrameWork = FrameWork()
-        self.BackEnd = BackEnd()
-        self.SGBD = SGBD()
-
-        print('\n**'*10,self.__str__())
+        self.id = 0
+        self.nome = ''
+        self.descricao= ''
+        self.numeropessoas = 0
+        self.id_framework = 0
+        self.id_backend = 0
+        self.id_sgdb = 0 
+        self.framework = FrameWork()
+        self.backend = BackEnd()
+        self.sgdb = Sgdb()
 
     def __str__(self):
-        return f'{self.id};{self.Nome};{self.Descricao};{self.NumeroPessoas};{self.BackEnd};{self.FrameWork};{self.SGBD}'
-
-squad = Squad()
+        return f'{self.id};{self.nome};{self.descricao};{self.numeropessoas};{self.id_framework};{self.id_backend};{self.id_sgdb}'

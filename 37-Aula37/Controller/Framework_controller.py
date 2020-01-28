@@ -1,7 +1,5 @@
-from Dao.Framework_dao import FrameWorkDao
-from Model.Framework import FrameWork
-
-
+from Model.framework import FrameWork
+from Dao.framework_dao import FrameWorkDao
 class FrameWorkController:
     dao = FrameWorkDao()
     
@@ -12,7 +10,7 @@ class FrameWorkController:
         for p in lista_tuplas:
             framework = FrameWork()
             framework.id =  p[0]
-            framework.Nome = p[1]
+            framework.nome = p[1]
             
             lista_frameworks.append(framework)
         return lista_frameworks

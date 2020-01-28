@@ -1,5 +1,5 @@
-from Dao.BackEnd_dao import BackEndDao
-from Model.BackEnd import BackEnd
+from Model.backend import BackEnd
+from Dao.backend_dao import BackEndDao
 
 class BackEndController:
     dao = BackEndDao()
@@ -10,7 +10,7 @@ class BackEndController:
         for p in lista_tuplas:
             backend = BackEnd()
             backend.id =  p[0]
-            backend.Nome = p[1]
+            backend.nome = p[1]
             
             lista_backends.append(backend)
         return lista_backends

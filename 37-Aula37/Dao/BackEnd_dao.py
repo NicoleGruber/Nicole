@@ -1,5 +1,5 @@
 import MySQLdb
-from Model.BackEnd import BackEnd
+from Model.backend import BackEnd
 
 class BackEndDao:
     conexao = MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
@@ -22,13 +22,10 @@ class BackEndDao:
         comando = f""" INSERT INTO FN_LinguagemBackEnd
         (
             Nome
-            
         )
         VALUES
         (
-            '{backend.Nome}'
-            
-
+            '{backend.nome}'
         )"""
         self.cursor.execute(comando)
         self.conexao.commit()
@@ -38,7 +35,7 @@ class BackEndDao:
     def alterar(self, backend:BackEnd):
         comando = f""" UPDATE FN_LinguagemBackEnd
         SET
-            Nome = '{backend.Nome}',
+            Nome = '{backend.nome}',
            
         WHERE ID = {backend.id}
         """

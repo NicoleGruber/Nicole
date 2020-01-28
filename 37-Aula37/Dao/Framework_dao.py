@@ -1,5 +1,5 @@
 import MySQLdb
-from Model.Framework import FrameWork
+from Model.framework import FrameWork
 
 class FrameWorkDao:
     conexao = MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
@@ -26,7 +26,7 @@ class FrameWorkDao:
         )
         VALUES
         (
-            '{framework.Nome}'
+            '{framework.nome}'
             
 
         )"""
@@ -38,7 +38,7 @@ class FrameWorkDao:
     def alterar(self, framework:FrameWork):
         comando = f""" UPDATE FN_FrameWorkFrontEnd
         SET
-            Nome = '{framework.Nome}',
+            Nome = '{framework.nome}',
            
         WHERE ID = {framework.id}
         """
