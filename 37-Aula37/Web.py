@@ -69,7 +69,7 @@ def salvar():
         squad_controller.salvar(squad)
     else:
         squad_controller.alterar(squad)
-        print('alterar')
+        print()
     return redirect('/listar')
 
 @app.route('/framework.salvar')

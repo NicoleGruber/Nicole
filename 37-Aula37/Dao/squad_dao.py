@@ -19,6 +19,14 @@ class SquadDao:
         return resultado
     
     def buscar_por_id(self, id):
+        comando = f"""SELECT *
+        FROM Nicole_Squad as s
+        JOIN FN_FrameWorkFrontEnd as fm
+        on s.FrameWorkFrontEnd_ID = fm.ID
+        join FN_LinguagemBackEnd as l
+        on s.LinguagemBackEnd_ID = l.ID
+        join FN_SGBD as db
+        on s.SGBD_ID = db. ID WHERE s.ID = {id} """
         
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
