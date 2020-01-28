@@ -6,7 +6,7 @@ class SquadDao:
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando = f"""SELECT
+        comando = f"""SELECT *
         FROM Nicole_Squad as s
         JOIN FN_FrameWorkFrontEnd as fm
         on s.FrameWorkFrontEnd_ID = fm.ID
@@ -19,20 +19,6 @@ class SquadDao:
         return resultado
     
     def buscar_por_id(self, id):
-        comando = f"""SELECT s.ID, s.Nome, s.Descricao, s.NumeroPessoas
-        ,fm.ID
-        ,fm.FrameWorkFrontEnd
-        ,l.ID
-        ,l.LinguagemBackEnd
-        ,db.ID
-        ,db.SGBD
-        FROM Nicole_Squad as s
-        JOIN FN_FrameWorkFrontEnd as fm
-        on s.FrameWorkFrontEnd_ID = fm.ID
-        join FN_LinguagemBackEnd as l
-        on s.LinguagemBackEnd_ID = l.ID
-        join FN_SGBD as db
-        on s.SGBD_ID = db. ID WHERE s.ID = {id}; """
         
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
@@ -70,7 +56,7 @@ class SquadDao:
         SET
             Nome = '{squad.nome}',
             Descricao ='{squad.descricao}',
-            NumeroPessoas = {squad.numeropessoas}
+            NumeroPessoas = {squad.numeropessoas},
             FrameWorkFrontEnd_ID = {squad.id_framework},
             LinguagemBackEnd_ID = {squad.id_backend},
             SGBD_ID = {squad.id_sgdb}

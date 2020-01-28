@@ -15,23 +15,23 @@ class SquadController:
         lista_squads = []
         lista_tuplas = self.dao.listar_todos()
         print(lista_tuplas)
-        for p in lista_tuplas:
+        for s in lista_tuplas:
             squad = Squad()
-            squad.id =  p[0]
-            squad.nome = p[1]
-            squad.descricao = p[2]
-            squad.numeropessoas = p[3]
-            squad.backend.nome = p[8]
+            squad.id =  s[0]
+            squad.nome = s[1]
+            squad.descricao = s[2]
+            squad.numeropessoas = s[3]
+            squad.backend.nome = s[8]
             if squad.backend.nome == 'None':
                 squad.backend.nome = 'Não Definido'
             else:
                 pass
-            squad.framework.nome = p[10]
+            squad.framework.nome = s[10]
             if squad.framework.nome == 'None':
                 squad.framework.nome = 'Não Definido'
             else:
                 pass
-            squad.sgdb.nome = [12]
+            squad.sgdb.nome = s[12]
             if squad.sgdb.nome == 'None':
                 squad.sgdb.nome = 'Não Definido'
             else:
@@ -41,16 +41,16 @@ class SquadController:
         return lista_squads
 
     def buscar_por_id(self, id):
-        p = self.dao.buscar_por_id(id)
+        s = self.dao.buscar_por_id(id)
         squad = Squad()
-        squad.id =  p[0]
-        squad.nome = p[1]
-        squad.descricao = p[2]
-        squad.numeropessoas = p[3]
-        
-        squad.FrameWorkFrontEnd_ID = p[4]
-        squad.LinguagemBackEnd_ID = p[5]
-        squad.SGBD_ID
+        squad.id =  s[0]
+        squad.nome = s[1]
+        squad.descricao = s[2]
+        squad.numeropessoas = s[3]
+        squad.FrameWorkFrontEnd_ID = s[4]
+        squad.LinguagemBackEnd_ID = s[5]
+        squad.SGBD_ID = s[6]
+
         return squad
 
     def salvar(self, squad:Squad):

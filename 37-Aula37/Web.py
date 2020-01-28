@@ -24,7 +24,7 @@ def inicio():
 @app.route('/listar')
 def listar():
     squad = squad_controller.listar_todos()
-    return render_template('listar.html', titulo_app = nome, lista = squad)
+    return render_template('listar.html', titulo_app = nome, lista_squads = squad)
 
 @app.route('/cadastrar')
 def cadastrar():
@@ -61,29 +61,15 @@ def salvar():
     squad.nome = request.args['Nome']
     squad.descricao = request.args['Descricao']
     squad.numeropessoas = request.args['NumeroPessoas']
+    squad.id_framework = int(request.args['FrameWork'])
+    squad.id_backend = int(request.args['LinguagemBackEnd'])
+    squad.id_sgdb = int(request.args['Sgdb'])
 
-    framework = FrameWork()
-    framework.id = request.args['id']
-    framework.nome = request.args['Nome']
-
-    backend = BackEnd()
-    backend.id = request.args['id']
-    backend.nome = request.args['Nome']
-
-    sgbd = Sgdb()
-    sgbd.id = request.args['id']
-    sgbd.nome = request.args['Nome']    
-
-    squad.framework = FrameWork
-    squad.backend = BackEnd 
-    squad.sgdb = Sgdb
-
-
-    
     if squad.id == 0:
         squad_controller.salvar(squad)
     else:
         squad_controller.alterar(squad)
+        print('alterar')
     return redirect('/listar')
 
 @app.route('/framework.salvar')

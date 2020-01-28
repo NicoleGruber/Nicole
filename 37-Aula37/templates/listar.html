@@ -24,22 +24,19 @@
                 </tr>
             </thead>
             <tbody>
-                {% for p in lista_squads %}
+                {% for s in lista_squads %}
                 <tr>
-                    <td>{{ p.id }}</td>
-                    <td>{{ p.nome }}</td>
-                    <td>{{ p.descricao }}</td>
-                    <td>{{ p.numeropessoas }}</td>
-                    <td>{{ p.framework.id if p.framework.id != 0 else ''  }}</td>
-                    <td>{{ p.framework.nome if p.framework.nome else ''  }}</td>
-                    <td>{{ p.backend.id if p.backend.id != 0 else '' }}</td>
-                    <td>{{ p.backend.nome if p.backend.nome else ''   }}</td>
-                    <td>{{ p.sgdb.id if p.sgdb.id != 0 else '' }}</td>
-                    <td>{{ p.sgdb.nome if p.sgdb.nome else '' }}</td>
-        
+                    <td>{{s.id}}</td>
+                    <td>{{s.nome}}</td>
+                    <td>{{s.descricao}}</td>
+                    <td>{{s.numeropessoas}}</td>
+                    <td>{{s.framework.nome}}</td>
+                    <td>{{s.backend.nome}}</td>
+                    <td>{{s.sgdb.nome}}</td>
+
                     <td>
-                        <a href="/cadastrar?id={{ p[0] }}" class="editar">Editar</a>
-                        <a href="/excluir?id={{ p[0] }}&id_end={{ p[5] }}" class="excluir">Excluir</a>
+                        <a href="/cadastrar?id={{ s.id }}" class="editar">Editar</a>
+                        <a href="/excluir?id={{ s[0] }}" class="excluir">Excluir</a> 
                     </td>
                 </tr>
                 {% endfor %}
