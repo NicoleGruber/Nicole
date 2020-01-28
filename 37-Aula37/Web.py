@@ -47,9 +47,6 @@ def cadastrar():
 @app.route('/excluir')
 def excluir():
     id = int(request.args['id'])
-    framework_controller.deletar(id)
-    backend_controller.deletar(id)
-    sgdb_controller.deletar(id)
     squad_controller.deletar(id)
     
     return redirect('/listar')

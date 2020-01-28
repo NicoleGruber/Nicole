@@ -26,7 +26,7 @@ class SquadDao:
         join FN_LinguagemBackEnd as l
         on s.LinguagemBackEnd_ID = l.ID
         join FN_SGBD as db
-        on s.SGBD_ID = db. ID WHERE s.ID = {id} """
+        on s.SGBD_ID = db.ID WHERE s.ID = {id} """
         
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()

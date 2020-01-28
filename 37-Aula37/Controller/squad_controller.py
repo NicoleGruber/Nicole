@@ -47,9 +47,9 @@ class SquadController:
         squad.nome = s[1]
         squad.descricao = s[2]
         squad.numeropessoas = s[3]
-        squad.FrameWorkFrontEnd_ID = s[4]
-        squad.LinguagemBackEnd_ID = s[5]
-        squad.SGBD_ID = s[6]
+        squad.framework.id = s[4]
+        squad.backend.id = s[5]
+        squad.sgdb.id = s[6]
 
         return squad
 
