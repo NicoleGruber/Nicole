@@ -58,21 +58,20 @@ class SquadDao:
         return id_inserido
 
     def alterar(self, squad:Squad):
-        comando = f"""UPDATE Nicole_Squad 
+        comando = f"""UPDATE Squad 
         SET
             Nome = '{squad.nome}',
             Descricao ='{squad.descricao}',
             NumeroPessoas = {squad.numeropessoas},
-            FrameWorkFrontEnd_ID = {squad.id_framework},
-            LinguagemBackEnd_ID = {squad.id_backend},
-            SGBD_ID = {squad.id_sgdb}
-
+            Frame_id = {squad.id_framework},
+            Back_id = {squad.id_backend},
+            Sgdb_id = {squad.id_sgdb}
         WHERE ID = {squad.id}
         """
         self.cursor.execute(comando)
         self.conexao.commit()
 
     def deletar(self, id):
-        comando = f"DELETE FROM Nicole_Squad WHERE ID = {id}"
+        comando = f"DELETE FROM Squad WHERE ID = {id}"
         self.cursor.execute(comando)
         self.conexao.commit()

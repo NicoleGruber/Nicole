@@ -2,26 +2,26 @@ import MySQLdb
 from Model.framework import FrameWork
 
 class FrameWorkDao:
-    conexao = MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
+    conexao = MySQLdb.connect(host='mysql.padawans.dev', database='padawans02', user='padawans02', passwd='fn2019')
     cursor = conexao.cursor()
 
 
     def listar_todos(self):
-        comando = f"SELECT * FROM topskills01.FN_FrameWorkFrontEnd;"
+        comando = f"SELECT * FROM FrameWork"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchall()
         return resultado
     
     def buscar_por_id(self, id):
-        comando = f"SELECT * FROM FN_FrameWorkFrontEnd  WHERE ID = {id}"
+        comando = f"SELECT * FROM FrameWork  WHERE ID = {id}"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
 
     def salvar(self, framework:FrameWork):
-        comando = f""" INSERT INTO FN_FrameWorkFrontEnd
+        comando = f""" INSERT INTO FrameWork
         (
-            FrameWorkFrontEnd
+            Nome
             
         )
         VALUES
@@ -36,9 +36,9 @@ class FrameWorkDao:
         return id_inserido
 
     def alterar(self, framework:FrameWork):
-        comando = f""" UPDATE FN_FrameWorkFrontEnd
+        comando = f""" UPDATE FrameWork
         SET
-            LinguagemBackEnd = '{framework.nome}',
+            Nome = '{framework.nome}',
            
         WHERE ID = {framework.id}
         """
@@ -46,6 +46,6 @@ class FrameWorkDao:
         self.conexao.commit()
 
     def deletar(self, id):
-        comando = f"DELETE FROM FN_FrameWorkFrontEnd WHERE ID = {id}"
+        comando = f"DELETE FROM FrameWork WHERE ID = {id}"
         self.cursor.execute(comando)
         self.conexao.commit()

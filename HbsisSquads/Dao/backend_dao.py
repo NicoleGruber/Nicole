@@ -2,7 +2,7 @@ import MySQLdb
 from Model.backend import BackEnd
 
 class BackEndDao:
-    conexao = MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
+    conexao = MySQLdb.connect(host='mysql.padawans.dev', database='padawans02', user='padawans02', passwd='fn2019')
     cursor = conexao.cursor()
 
 

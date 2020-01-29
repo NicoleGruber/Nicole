@@ -2,26 +2,26 @@ import MySQLdb
 from Model.sgdb import Sgdb
 
 class SgdbDao:
-    conexao = MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
+    conexao = MySQLdb.connect(host='mysql.padawans.dev', database='padawans02', user='padawans02', passwd='fn2019')
     cursor = conexao.cursor()
 
 
     def listar_todos(self):
-        comando = f"SELECT * FROM FN_SGBD"
+        comando = f"SELECT * FROM SGDB"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchall()
         return resultado
     
     def buscar_por_id(self, id):
-        comando = f"SELECT * FROM FN_SGBD  WHERE ID = {id}"
+        comando = f"SELECT * FROM SGDB  WHERE ID = {id}"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
 
     def salvar(self, sgdb:Sgdb):
-        comando = f""" INSERT INTO FN_SGBD
+        comando = f""" INSERT INTO SGDB
         (
-            SGBD
+            Nome
             
         )
         VALUES
@@ -36,7 +36,7 @@ class SgdbDao:
         return id_inserido
 
     def alterar(self, sgdb:Sgdb):
-        comando = f""" UPDATE FN_SGBD
+        comando = f""" UPDATE SGDB
         SET
             Nome = '{sgdb.nome}',
            
@@ -46,6 +46,6 @@ class SgdbDao:
         self.conexao.commit()
 
     def deletar(self, id):
-        comando = f"DELETE FROM FN_SGBD WHERE ID = {id}"
+        comando = f"DELETE FROM SGDB WHERE ID = {id}"
         self.cursor.execute(comando)
         self.conexao.commit()
