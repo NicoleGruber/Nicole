@@ -2,47 +2,45 @@ import MySQLdb
 from Model.squad import Squad
 
 class SquadDao:
-    conexao = MySQLdb.connect(host='mysql.topskills.study', database='topskills01', user='topskills01', passwd='ts2019')
+    conexao = MySQLdb.connect(host='mysql.padawans.dev', database='padawans02', user='padawans02', passwd='fn2019')
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando = f"""SELECT *
-        FROM Nicole_Squad as s
-        JOIN FN_FrameWorkFrontEnd as fm
-        on s.FrameWorkFrontEnd_ID = fm.ID
-        join FN_LinguagemBackEnd as l
-        on s.LinguagemBackEnd_ID = l.ID
-        join FN_SGBD as db
-        on s.SGBD_ID = db.ID;"""
+        comando = f"""
+        SELECT * FROM Squad as s
+        JOIN FrameWork as fm
+        on s.Frame_id = fm.id
+        join BackEnd as l
+        on s.Back_id = l.id
+        join SGDB as db
+        on s.Sgdb_id = db.id"""
         self.cursor.execute(comando)
         resultado = self.cursor.fetchall()
         return resultado
     
     def buscar_por_id(self, id):
-        comando = f"""SELECT *
-        FROM Nicole_Squad as s
-        JOIN FN_FrameWorkFrontEnd as fm
-        on s.FrameWorkFrontEnd_ID = fm.ID
-        join FN_LinguagemBackEnd as l
-        on s.LinguagemBackEnd_ID = l.ID
-        join FN_SGBD as db
-        on s.SGBD_ID = db.ID WHERE s.ID = {id} """
+        comando = f"""
+        SELECT * FROM Squad as s
+        JOIN FrameWork as fm
+        on s.Frame_id = fm.id
+        join BackEnd as l
+        on s.Back_id = l.id
+        join SGDB as db
+        on s.Sgdb_id = db.id WHERE s.id = {id} """
         
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
 
     def salvar(self, squad:Squad):
-        comando = f"""INSERT INTO Nicole_Squad
+        comando = f"""INSERT INTO Squad
         (
             Nome,
             Descricao,
             NumeroPessoas,
-            FrameWorkFrontEnd_ID,
-            LinguagemBackEnd_ID,
-            SGBD_ID            
-
-            
+            Frame_id,
+            Back_id,
+            Sgdb_id            
         )
         VALUES
         (

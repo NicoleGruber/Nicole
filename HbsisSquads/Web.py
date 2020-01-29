@@ -100,7 +100,7 @@ def salvar_framework():
         framework_controller.salvar(framework)
     else:
         framework_controller.alterar(framework)
-    return redirect('/listar_framework')
+    return redirect('/listar_framework.html')
 
 @app.route('/cadastrar_framework')
 def cadastrar_framework():
@@ -122,7 +122,7 @@ def excluir_backend():
 @app.route('/salvar_backend')
 def backend_nome():
     backend = BackEnd()
-    if backend.id == '0':
+    if backend.id == 0:
         backend_controller.salvar(backend)
     else:
         backend_controller.alterar(backend)

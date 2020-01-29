@@ -7,7 +7,7 @@ class FrameWorkDao:
 
 
     def listar_todos(self):
-        comando = f"SELECT * FROM FN_FrameWorkFrontEnd"
+        comando = f"SELECT * FROM topskills01.FN_FrameWorkFrontEnd;"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchall()
         return resultado
