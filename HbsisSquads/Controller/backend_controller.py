@@ -7,19 +7,19 @@ class BackEndController:
     def listar_todos(self):
         lista_backends = []
         lista_tuplas = self.dao.listar_todos()
-        for p in lista_tuplas:
+        for s in lista_tuplas:
             backend = BackEnd()
-            backend.id =  p[0]
-            backend.nome = p[1]
+            backend.id =  s[0]
+            backend.nome = s[1]
             
             lista_backends.append(backend)
         return lista_backends
 
     def buscar_por_id(self, id):
-        p = self.dao.buscar_por_id(id)
+        s = self.dao.buscar_por_id(id)
         backend = BackEnd()
-        backend.id =  p[0]
-        backend.Nome = p[1]
+        backend.id =  s[0]
+        backend.Nome = s[1]
       
         return backend
 

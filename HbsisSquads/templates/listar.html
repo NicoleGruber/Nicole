@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="conteudo">
-        <a class='btn-cadastro' href="/cadastrar">Cadastrar</a>
+        <a class='btn-cadastro' href="/cadastrar_squad">Cadastrar</a>
         <table id='tabela-squad'>
             <thead>
                 <tr>
@@ -35,8 +35,8 @@
                     <td>{{s.sgdb.nome}}</td>
 
                     <td>
-                        <a href="/cadastrar?id={{ s.id }}" class="editar">Editar</a>
-                        <a href="/excluir?id={{ s.id }}" class="excluir">Excluir</a> 
+                        <a href="/cadastrar_squad?id={{ s.id }}" class="editar">Editar</a>
+                        <a href="/excluir_squad?id={{ s.id }}" class="excluir">Excluir</a> 
                     </td>
                 </tr>
                 {% endfor %}

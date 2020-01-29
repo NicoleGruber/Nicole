@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class='form-control'>
+        <form action='/salvar_sgdb' method='get'>
+        
+        <h4>Cadastro do SGDB</h4>
+            <div class="form-group row">
+                    <input type="hidden" name="id" class="form-control" id="id" value="{{sgdb.id}}" >
+                <div class="col-sm-6">
+                    <label for="nome">Nome do SGDB</label>
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" value="{{sgdb.nome}}">
+                </div>
+            </div>
+        <hr>
+        
+        <button type="submit" value='Salvar' class="btn btn-success">Salvar</button>
+        
+        <button type="button" class="btn btn-warning"><a href='/listar_sgdb'>Limpar</a></button>
+        
+        
+        
+        
+        </form>
+        </div>
+</body>
+</html>

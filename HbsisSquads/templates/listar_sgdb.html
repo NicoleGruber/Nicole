@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SGDB</title>
+</head>
+<body>
+  
+<div class="col-lg-12">
+  <a style="top: 20em" class='btn-button' href="/cadastrar_sgdb"><button type="button" class="btn btn-primary">Cadastrar</button></a>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome do SGDB</th>
+
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for s in lista_sgdb %}
+    <tr class="table-hover">
+          <td>{{s.id}}</td>
+          <td>{{s.nome}}</td>
+
+
+          <td>
+              <a href="/listar_sgdb?id={{s.id}}"><span class="badge badge-pill badge-success">Editar</span></a>
+              <a href="/excluir_sgdb?id={{s.id}}"><span class="badge badge-pill badge-danger">Excluir</span></a>
+          </td>
+      </tr>
+      {% endfor %}
+
+   
+    </tbody>
+  </table>
+  </div>
+</body>
+</html>

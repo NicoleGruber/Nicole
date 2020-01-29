@@ -7,20 +7,20 @@ class SgdbController:
     def listar_todos(self):
         lista_sgdb = []
         lista_tuplas = self.dao.listar_todos()
-        for p in lista_tuplas:
+        for s in lista_tuplas:
             sgdb = Sgdb()
-            sgdb.id =  p[0]
-            sgdb.nome = p[1]
+            sgdb.id =  s[0]
+            sgdb.nome = s[1]
             
             
             lista_sgdb.append(sgdb)
         return lista_sgdb
 
     def buscar_por_id(self, id):
-        p = self.dao.buscar_por_id(id)
+        s = self.dao.buscar_por_id(id)
         sgdb = Sgdb()
-        sgdb.id =  p[0]
-        sgdb.nome = p[1]
+        sgdb.id =  s[0]
+        sgdb.nome = s[1]
       
         return sgdb
 

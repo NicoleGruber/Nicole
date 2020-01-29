@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="conteudo">
-        <form action="/squad.salvar" method="get">
+        <form action="/salvar_squad" method="get">
+            <h4>Dados Squad </h4>
             <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
 
             <div class="descricoes">
@@ -45,11 +46,10 @@
             </div>    
             <input type="text" name="Sgdb" id="Sgdb" value="{{squad.sgdb.id}}"> <br/>
 
-    
-                
             <hr/>
-            <input type="submit" value="Salvar" class="salvar">
-            <a href="/cadastrar" class="limpar">Limpar</a>
+            <button type="submit" value='salvar_squad' class="btn btn-success">Salvar</button>
+            <button type="button" class="btn btn-warning"><a href='/cadastrar_squad'>Limpar</a></button>
+            
         </form>
     </div>
 </body>

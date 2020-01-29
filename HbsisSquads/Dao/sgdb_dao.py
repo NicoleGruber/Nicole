@@ -21,7 +21,7 @@ class SgdbDao:
     def salvar(self, sgdb:Sgdb):
         comando = f""" INSERT INTO FN_SGBD
         (
-            Nome
+            SGBD
             
         )
         VALUES
