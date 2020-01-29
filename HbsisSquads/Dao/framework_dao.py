@@ -21,7 +21,7 @@ class FrameWorkDao:
     def salvar(self, framework:FrameWork):
         comando = f""" INSERT INTO FN_FrameWorkFrontEnd
         (
-            Nome
+            FrameWorkFrontEnd
             
         )
         VALUES
@@ -38,7 +38,7 @@ class FrameWorkDao:
     def alterar(self, framework:FrameWork):
         comando = f""" UPDATE FN_FrameWorkFrontEnd
         SET
-            Nome = '{framework.nome}',
+            LinguagemBackEnd = '{framework.nome}',
            
         WHERE ID = {framework.id}
         """

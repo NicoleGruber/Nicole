@@ -26,15 +26,13 @@
               <td>{{s.id}}</td>
               <td>{{s.nome}}</td>
 
-
               <td>
-                  <a href="/listar_framework?id={{s.id}}"><span class="badge badge-pill badge-success">Editar</span></a>
+                  <a href="/salvar_framework?id={{s.id}}"><span class="badge badge-pill badge-success">Editar</span></a>
                   <a href="/excluir_framework?id={{s.id}}"><span class="badge badge-pill badge-danger">Excluir</span></a>
               </td>
           </tr>
           {% endfor %}
 
-      
         </tbody>
       </table>
       </div>

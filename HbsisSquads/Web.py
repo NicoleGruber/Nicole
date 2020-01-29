@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+
 import sys
 sys.path.append(r'C:\Users\Nicole\Desktop\Nicole')
 from Controller.squad_controller import SquadController
@@ -9,6 +10,7 @@ from Model.squad import Squad
 from Model.framework import FrameWork
 from Model.backend import BackEnd
 from Model.sgdb import Sgdb
+from Dao.framework_dao import FrameWorkDao
 
 
 app = Flask(__name__)
@@ -61,18 +63,17 @@ def excluir():
 def salvar():
     squad = Squad()
     squad.id = int(request.args['id'])
-    squad.nome = request.args['Nome']
-    squad.descricao = request.args['Descricao']
-    squad.numeropessoas = request.args['NumeroPessoas']
-    squad.id_framework = int(request.args['FrameWork'])
-    squad.id_backend = int(request.args['LinguagemBackEnd'])
-    squad.id_sgdb = int(request.args['Sgdb'])
+    squad.nome = request.args['nome']
+    squad.descricao = request.args['descricao']
+    squad.numeropessoas = request.args['numeropessoas']
+    squad.id_framework = int(request.args['framework'])
+    squad.id_backend = int(request.args['backend'])
+    squad.id_sgdb = int(request.args['sgdb'])
 
     if squad.id == 0:
         squad_controller.salvar(squad)
     else:
         squad_controller.alterar(squad)
-        print()
     return redirect('/listar')
 
 #---------- CRUD FRAMEWORK ----------
@@ -93,9 +94,9 @@ def excluir_framework():
 def salvar_framework():
     framework = FrameWork()
     framework.id = int(request.args['id'])
-    framework.nome = request.args['Nome']
+    framework.nome = request.args['nome']
 
-    if framework.id == '0':
+    if framework.id == 0:
         framework_controller.salvar(framework)
     else:
         framework_controller.alterar(framework)
@@ -107,7 +108,7 @@ def cadastrar_framework():
     if 'id' in request.args:
         id = request.args['id']
         framework = framework_controller.buscar_por_id(id)
-    return render_template('cadastrar_framework.html', titulo_app = nome,framework = framework)
+    return render_template('cadastrarframework.html', titulo_app = nome,framework = framework)
 
 #---------- CRUD BACKEND ----------
 
@@ -138,7 +139,7 @@ def cadastrar_backend():
     if 'id' in request.args:
         id = request.args['id']
         backend = backend_controller.buscar_por_id(id)
-    return render_template('cadastrar_backend.html', titulo_app = nome,backend = backend)
+    return render_template('cadastrarbackend.html', titulo_app = nome,backend = backend)
 
 #---------- CRUD SGDB ----------
 

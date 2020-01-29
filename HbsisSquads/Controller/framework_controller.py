@@ -14,12 +14,12 @@ class FrameWorkController:
             
             lista_frameworks.append(framework)
         return lista_frameworks
-
+        
     def buscar_por_id(self, id):
         s = self.dao.buscar_por_id(id)
         framework = Framework()
         framework.id =  s[0]
-        framework.Nome = s[1]
+        framework.nome = s[1]
       
         return framework
 
