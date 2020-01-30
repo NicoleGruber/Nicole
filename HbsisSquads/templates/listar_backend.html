@@ -14,7 +14,7 @@
     <thead>
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">Nome da Linguagem</th>
+        <th scope="col">Nome da LinguagemBackEnd</th>
 
         <th scope="col"></th>
       </tr>
@@ -24,12 +24,12 @@
       <tr class="table-hover">
             <td>{{s.id}}</td>
             <td>{{s.nome}}</td>
-
-
             <td>
-                <a href="/listar_backend?id={{s.id}}"><span class="badge badge-pill badge-success">Editar</span></a>
-                <a href="/excluir_backend?id={{s.id}}"><span class="badge badge-pill badge-danger">Excluir</span></a>
-            </td>
+                <a href="/cadastrar_backend?id={{ s.id }}" class="editar">Editar</a>
+                <a href="/excluir_backend?id={{ s.id }}" class="excluir">Excluir</a>
+
+              </td>
+      
         </tr>
         {% endfor %}
 

@@ -11,7 +11,7 @@ from Model.framework import FrameWork
 from Model.backend import BackEnd
 from Model.sgdb import Sgdb
 from Dao.framework_dao import FrameWorkDao
-
+from Dao.backend_dao import BackEndDao
 
 app = Flask(__name__)
 
@@ -87,7 +87,6 @@ def listar_framework():
 def excluir_framework():
     id = int(request.args['id'])
     framework_controller.deletar(id)
-    
     return redirect('/listar_framework')
 
 @app.route('/salvar_framework')
@@ -115,13 +114,17 @@ def cadastrar_framework():
 @app.route('/excluir_backend')
 def excluir_backend():
     id = int(request.args['id'])
-    framework_controller.deletar(id)
+    backend_controller.deletar(id)
     
     return redirect('/listar_backend')
 
+
 @app.route('/salvar_backend')
-def backend_nome():
+def salvar_backend():
     backend = BackEnd()
+    backend.id = int(request.args['id'])
+    backend.nome = request.args['nome']
+
     if backend.id == 0:
         backend_controller.salvar(backend)
     else:
@@ -150,10 +153,11 @@ def excluir_sgdb():
     
     return redirect('/listar_sgdb')
 
-
 @app.route('/salvar_sgdb')
-def sgdb_nome():
+def salvar_sgdb():
     sgdb = Sgdb()
+    sgdb.id = int(request.args['id'])
+    sgdb.nome = request.args['nome']
     if sgdb.id == 0:
         sgdb_controller.salvar(sgdb)
     else:

@@ -38,7 +38,7 @@ class SgdbDao:
     def alterar(self, sgdb:Sgdb):
         comando = f""" UPDATE SGDB
         SET
-            Nome = '{sgdb.nome}',
+            Nome = '{sgdb.nome}'
            
         WHERE ID = {sgdb.id}
         """

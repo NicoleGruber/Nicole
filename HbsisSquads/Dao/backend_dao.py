@@ -35,7 +35,7 @@ class BackEndDao:
     def alterar(self, backend:BackEnd):
         comando = f""" UPDATE BackEnd
         SET
-            Nome = '{backend.nome}',
+            Nome = '{backend.nome}'
            
         WHERE ID = {backend.id}
         """

@@ -19,7 +19,7 @@ class BackEndController:
         s = self.dao.buscar_por_id(id)
         backend = BackEnd()
         backend.id =  s[0]
-        backend.Nome = s[1]
+        backend.nome = s[1]
       
         return backend
 
