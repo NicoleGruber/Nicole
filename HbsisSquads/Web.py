@@ -57,7 +57,7 @@ def excluir():
     id = int(request.args['id'])
     squad_controller.deletar(id)
     
-    return redirect('/listar')
+    return redirect('/listar_squad')
 
 @app.route('/salvar_squad')
 def salvar():
@@ -74,7 +74,7 @@ def salvar():
         squad_controller.salvar(squad)
     else:
         squad_controller.alterar(squad)
-    return redirect('/listar')
+    return redirect('/listar_squad')
 
 #---------- CRUD FRAMEWORK ----------
 
@@ -100,7 +100,7 @@ def salvar_framework():
         framework_controller.salvar(framework)
     else:
         framework_controller.alterar(framework)
-    return redirect('/listar_framework.html')
+    return redirect('/listar_framework')
 
 @app.route('/cadastrar_framework')
 def cadastrar_framework():

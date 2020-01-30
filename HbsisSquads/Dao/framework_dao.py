@@ -38,7 +38,7 @@ class FrameWorkDao:
     def alterar(self, framework:FrameWork):
         comando = f""" UPDATE FrameWork
         SET
-            Nome = '{framework.nome}',
+            Nome = '{framework.nome}'
            
         WHERE ID = {framework.id}
         """

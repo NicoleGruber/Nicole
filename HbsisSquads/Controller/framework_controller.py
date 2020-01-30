@@ -7,6 +7,7 @@ class FrameWorkController:
     def listar_todos(self):
         lista_frameworks = []
         lista_tuplas = self.dao.listar_todos()
+        print(lista_tuplas)
         for s in lista_tuplas:
             framework = FrameWork()
             framework.id =  s[0]
@@ -17,7 +18,7 @@ class FrameWorkController:
         
     def buscar_por_id(self, id):
         s = self.dao.buscar_por_id(id)
-        framework = Framework()
+        framework = FrameWork()
         framework.id =  s[0]
         framework.nome = s[1]
       
