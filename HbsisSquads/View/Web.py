@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 
 import sys
-sys.path.append(r'C:\Users\Nicole\Desktop\Nicole')
+sys.path.append(r'C:\Users\Nicole\Desktop\Nicole\HbsisSquads')
 from Controller.squad_controller import SquadController
 from Controller.backend_controller import BackEndController
 from Controller.framework_controller import FrameWorkController
